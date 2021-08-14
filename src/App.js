@@ -9,7 +9,7 @@ import React, { Component } from "react";
 import { makeObservable, observable, action } from "mobx";
 import { observer } from "mobx-react";
 import NotFound from "./notFound/notFound";
-
+import { environments } from "./environments/enviroments";
 export class App extends Component {
   isLogin = false;
 
@@ -48,7 +48,7 @@ export class App extends Component {
         <div>
           <Switch>
             <Route
-              path="/signin"
+              path={environments.basePage + "signin"}
               render={(props) => (
                 <SignIn
                   {...props}
@@ -57,7 +57,7 @@ export class App extends Component {
               )}
             />
             <Route
-              path="/signup"
+              path={environments.basePage + "signup"}
               render={(props) => (
                 <SignUp
                   {...props}
@@ -65,8 +65,11 @@ export class App extends Component {
                 />
               )}
             />
-            <Route path="/addPost" component={AddPost} />
-            <Route exact path="/" component={Home} />
+            <Route
+              path={environments.basePage + "addPost"}
+              component={AddPost}
+            />
+            <Route exact path={environments.basePage} component={Home} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
