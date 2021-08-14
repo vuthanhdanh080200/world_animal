@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: grey;
 }
 
 .App-logo {
@@ -26,6 +28,17 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.form {
+  padding: 10px;
+  border: 2px solid;
+  background-color: aliceblue;
+}
+
+.form-container {
+  min-height: 100vh;
+  width: 100vw;
 }
 
 @keyframes App-logo-spin {
