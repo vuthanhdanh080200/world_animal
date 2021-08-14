@@ -4,7 +4,7 @@ import axios from "axios";
 
 const http = axios.create({
   baseURL: environments.baseUrl + "posts/",
-  timeout: 1000,
+  timeout: 5000,
 });
 
 export class PostServices extends BaseService {

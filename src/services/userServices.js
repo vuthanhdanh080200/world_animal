@@ -4,7 +4,7 @@ import axios from "axios";
 
 const http = axios.create({
   baseURL: environments.baseUrl + "users/",
-  timeout: 2000,
+  timeout: 5000,
 });
 
 class UserServices extends BaseService {

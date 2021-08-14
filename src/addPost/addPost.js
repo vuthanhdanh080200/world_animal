@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Form, Button, Image, InputGroup, FormControl } from "react-bootstrap";
+import { Form, Button, Image } from "react-bootstrap";
 import PostServices from "../services/postServices";
-
-import Input from "./form/input";
-import "./addPost.css";
+import Input from "../components/form/input";
 
 export class AddPost extends Component {
   state = {
@@ -20,7 +18,7 @@ export class AddPost extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submmited", this.state.post);
-    const post = await this.postServices.createPost(this.state.post);
+    await this.postServices.createPost(this.state.post);
     this.props.history.push("/");
   };
 
@@ -103,6 +101,7 @@ export class AddPost extends Component {
                 width="727"
                 height="409"
                 src={post.src}
+                title={post.title}
                 frameBorder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

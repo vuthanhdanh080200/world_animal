@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import UserServices from "../services/userServices";
-import "./signIn.css";
 import styles from "./styles";
-
 import Input from "../components/form/input";
 
 export class SignIn extends Component {
@@ -16,7 +14,7 @@ export class SignIn extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submmited", this.state.account);
-    const user = await this.userServices.signIn(this.state.account);
+    await this.userServices.signIn(this.state.account);
     this.props.history.push("/");
     this.props.onUpdateLogin();
   };
@@ -30,13 +28,11 @@ export class SignIn extends Component {
   render() {
     let { account } = this.state;
     return (
-      <div className="d-flex justify-content-center align-items-center form-container">
-        <div
-          className="form"
-          style={{
-            width: 500,
-          }}
-        >
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={styles.container}
+      >
+        <div className="form" style={styles.form}>
           <h3 style={{ textAlign: "center" }}>Sign In to Animal World!</h3>
           <Form onSubmit={this.handleSubmit}>
             <Input

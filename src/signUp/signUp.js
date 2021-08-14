@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Form, Button, Image } from "react-bootstrap";
 import UploadButton from "../components/uploadButton";
-import "./signUp.css";
 import avatar from "../asset/avatar.png";
 import Input from "../components/form/input";
 import UserServices from "../services/userServices";
+import styles from "./styles";
+
 export class SignUp extends Component {
   state = {
     user: {
@@ -52,15 +53,9 @@ export class SignUp extends Component {
     const { user } = this.state;
 
     return (
-      // <div className="d-flex justify-content-center align-items-center form-container">
       <div className="d-flex justify-content-center">
-        <div
-          className="form"
-          style={{
-            width: 500,
-          }}
-        >
-          <h3 style={{ textAlign: "center" }}>Sign Up to Animal World!</h3>
+        <div className="form" style={styles.form}>
+          <h3 style={styles.text}>Sign Up to Animal World!</h3>
           <Form validated={this.state.isFormValid} onSubmit={this.handleSubmit}>
             <Input
               name="email"
@@ -85,11 +80,7 @@ export class SignUp extends Component {
               buttonName="Avatar file"
               handleImageUpload={this.handleImageUpload}
             />
-            <Image
-              src={user.avatar}
-              style={{ padding: "20px", width: "200px", height: "200px" }}
-              rounded
-            />
+            <Image src={user.avatar} style={styles.img} rounded />
             <br />
             <Button variant="primary" type="submit">
               Submit

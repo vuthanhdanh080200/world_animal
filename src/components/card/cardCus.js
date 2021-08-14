@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import "./cardCus.css";
 import styles from "./styles";
 import Arrow from "../arrow";
 import { observer } from "mobx-react";
@@ -12,12 +11,18 @@ const CardCus = ({ card, handleVote }) => {
           <Card.Title>{card.title}</Card.Title>
           <div className="d-flex justify-content-center">
             {card.type === "image" && (
-              <img style={styles.img} variant="top" src={card.src} />
+              <img
+                style={styles.img}
+                variant="top"
+                src={card.src}
+                alt={card.title}
+              />
             )}
             {card.type === "video" && (
               <iframe
                 style={styles.iframe}
                 src={card.src}
+                title={card.title}
                 frameBorder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

@@ -1,4 +1,4 @@
-export default {
+const styles = {
   container: {
     margin: 5,
     padding: 5,
@@ -18,3 +18,5 @@ export default {
 
   iframe: { flex: 1, minHeight: 500, padding: 20 },
 };
+
+export default styles;

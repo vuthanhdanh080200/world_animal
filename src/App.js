@@ -1,11 +1,10 @@
-import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import PostDetails from "./components/postDetails";
+import { Route, Switch } from "react-router-dom";
 import Home from "./home/home";
 import NavBarComp from "./components/navBar/navBarComp";
 import SignIn from "./signIn/signIn";
 import SignUp from "./signUp/signUp";
-import AddPost from "./components/addPost";
+import AddPost from "./addPost/addPost";
 import React, { Component } from "react";
 import { makeObservable, observable, action } from "mobx";
 import { observer } from "mobx-react";
@@ -48,7 +47,6 @@ export class App extends Component {
         />
         <div>
           <Switch>
-            <Route path="/post/:id" component={PostDetails} />
             <Route
               path="/signin"
               render={(props) => (

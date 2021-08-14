@@ -3,7 +3,6 @@ import CardCus from "../components/card/cardCus";
 import PostServices from "../services/postServices";
 import { makeObservable, observable, action } from "mobx";
 import { observer } from "mobx-react";
-import { Button } from "react-bootstrap";
 
 export class Home extends Component {
   posts = [];
@@ -39,18 +38,14 @@ export class Home extends Component {
   handleVote = async (isUpVote, postId) => {
     if (isUpVote) {
       await this.postServices.upVote(postId);
-      this.posts.map((value, index) => {
-        if (value.postId === postId) {
-          this.posts[index].upVote += 1;
-        }
-      });
+      for (let i = 0; i < this.posts.length; i++) {
+        if (this.posts[i].postId === postId) this.posts[i].upVote += 1;
+      }
     } else {
       await this.postServices.downVote(postId);
-      this.posts.map((value, index) => {
-        if (value.postId === postId) {
-          this.posts[index].downVote += 1;
-        }
-      });
+      for (let i = 0; i < this.posts.length; i++) {
+        if (this.posts[i].postId === postId) this.posts[i].downVote += 1;
+      }
     }
   };
 

@@ -1,4 +1,4 @@
 export const environments = {
   production: false,
-  baseUrl: "http://localhost:3000/api/",
+  baseUrl: "http://world-animal.herokuapp.com/api/",
 };
